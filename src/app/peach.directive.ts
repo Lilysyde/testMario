@@ -8,6 +8,10 @@ export  enum KEY_CODE{
   selector: '[appPeach]'
 })
 export class PeachDirective {
+bouger :number =10
+readonly: number =0
+vertical:number=0
+horizontal:number =0
 
 @HostBinding ('style.transform') mytransformation : any
   constructor() { }
@@ -15,19 +19,18 @@ export class PeachDirective {
 @HostListener ('window:keyup', ['$event']) keyEvent (event: KeyboardEvent){
   
   if (event.keyCode === KEY_CODE.RIGHT_ARROW){
+    
+this.horizontal+=this.bouger;
 
-  this.mytransformation = "translateX(10px)"
   }
   if (event.keyCode === KEY_CODE.LEFT_ARROW){
-this.mytransformation =  "translateX(-10px)"
+    
+    this.horizontal-=this.bouger;
+    
+      }
 
-  }
-  
+  this.mytransformation = "translate("+this.horizontal + "px ,"+this.vertical +"px)";
+
+
 }
-@HostListener ('window:key') mouseLeaveEvent (eventData: Event){
-  
-  this.mytransformation = 'translateX(0)'
-
-}
-
 }
