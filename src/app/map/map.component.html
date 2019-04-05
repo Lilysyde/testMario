@@ -1,9 +1,8 @@
 <p>
-  map works!
+  map works! {{mapTheme.textures}}
 </p>
 <div *ngFor="let row of map">
   <div *ngFor="let case of row">
-    <img src="textures[case]"/>
-     
+    <img [src]="mapTheme.textures[case]" />
     </div>
   </div>

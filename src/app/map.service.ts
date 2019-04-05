@@ -4,21 +4,23 @@ const CIEL = 0
 const TERRE = 1
 
 
-
-
+@Injectable({
+  providedIn: 'root'
+})
 
 
 export class MapTheme {
 
 
  public textures= {
-    TERRE : "mario/animation_course.png"
   }
   
   constructor() {    
-    
+    this.textures[TERRE] = "assets/textures/mario.png"
    }
-   
+ getTexture(){
+   return this.textures
+ }
 }
 
 
@@ -26,16 +28,18 @@ export class MapTheme {
   providedIn: 'root'
 })
 export class MapService {
- 
+  
+
+
   public map = [
-    [TERRE, CIEL, CIEL, TERRE],
+    [TERRE, TERRE, TERRE, TERRE],
     [TERRE, TERRE, TERRE, TERRE]
   ]
   constructor() {
 
 
   }
-getHeroes(): number[][]{
+getMap(): number[][]{
   return this.map
 }
 }
