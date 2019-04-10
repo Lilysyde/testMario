@@ -1,8 +1,12 @@
-<p>
-  map works! {{mapTheme.textures}}
-</p>
-<div *ngFor="let row of map">
-  <div *ngFor="let case of row">
-    <img [src]="mapTheme.textures[case]" />
+<body>
+  
+    <div class="game-view" [ngStyle]="{'background': 'url(assets/textures/test_fond.jpg) no-repeat fixed 100%'}">
+      <div class="map">
+        <div class="row" *ngFor="let row of mapService.map">
+          <div class="col" *ngFor="let case of row">
+            <img [src]="mapTheme.textures[case]" />
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+</body>

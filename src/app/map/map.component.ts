@@ -19,7 +19,7 @@ export class MapComponent implements OnInit {
 
   initMap(): void {
     this.map = this.mapService.getMap();
-    console.log(this.mapTheme.textures)
+  
   }
 
 
